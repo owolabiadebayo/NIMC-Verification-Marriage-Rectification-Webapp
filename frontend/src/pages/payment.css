@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap");
+
+.App {
+  text-align: center;
+  font-family: "Roboto";
+  letter-spacing: 0.1rem;
+}
+
+.container-payment {
+  display: flex;
+  flex-direction: column;
+  
+  height: 100vh;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.item {
+  width: 50%;
+  position: relative;
+}
+
+.item-image {
+  height: 430px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.overlay-effect {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.2;
+  background-color: #303030;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.item-details {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  color: #84a17d;
+  text-align: left;
+}
+
+.item-details__title {
+  font-size: 22px;
+}
+
+.item-details__amount {
+  font-weight: bolder;
+}
+
+.checkout {
+  background: #84a17d; /* fallback for old browsers */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 430px;
+  width: 50%;
+}
+
+.payment-boxes{
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.payment-box{
+    /* width: 30%; */
+    /* margin-left:  auto; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid #eee;
+    flex-direction: column;
+    padding: 50px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 3px 20px #00000047;
+}
+.payment-box h3{
+    font-weight: 200;
+}
+.checkout-form {
+  width: 40%;
+  border: 1px solid #eee;
+  padding: 30px;
+  height: 500px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 3px 20px #00000047;
+}
+.checkout-form form{
+    margin-top: 3rem;
+}
+
+.checkout-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.checkout-field label {
+  text-align: left;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.checkout-field input {
+  background-color: transparent;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  color: black;
+  height: 40px;
+  padding: 1rem;
+}
+
+.paystack-button {
+  cursor: pointer;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  background-color: #000066;
+  font-weight: bold;
+  color: #e0eafc;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 45px;
+  margin-top: 40px;
+}
+.paystack-button:hover {
+    background-color: #04049c;
+    color: #e0eafc;
+  }
+  
+  .paystack-button:focus {
+    outline: none;
+  }

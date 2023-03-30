@@ -8,10 +8,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home />} />
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/virtual_nin" element={<VirtualNin />} />
         <Route exact path="/download" element={<DownloadPage />} />
+        <Route exact path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
