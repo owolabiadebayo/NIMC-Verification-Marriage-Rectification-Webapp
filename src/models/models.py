@@ -1,12 +1,16 @@
 from  sqlmodel import Field, SQLModel, Session, JSON, Column
+from typing import List, Optional
 
 
-class User(BaseModel):
+class User(SQLModel, table=True):
+    id: int = Field(
+        primary_key=True
+    )
     name: str
     newName: str
     affidavit: str
     publication: str
-    persons: str
+    persons: List[str] = Field(sa_column=Column(JSON))
     transactionId: str
 
     class Config:
