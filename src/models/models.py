@@ -3,7 +3,8 @@ from typing import List, Optional
 
 
 class User(SQLModel, table=True):
-    id: int = Field(
+    id: Optional[int] = Field(
+        default=None,
         primary_key=True
     )
     name: str
@@ -14,12 +15,14 @@ class User(SQLModel, table=True):
     transactionId: str
 
     class Config:
+        arbitrary_types_allowed = True
         schema_extra = {
             "example": {
                 "name": "John Doe",
                 "newName": "Job Doe",
                 "affidavit":"job.jpeg",
                 "publication":"Publication",
-                "persons":"James"
+                "persons":["James","Adeleke","Eleojo"],
+                "transactionId":"owjieofjeiowdmdsivsdimvsidvsdo"
             }
         }
