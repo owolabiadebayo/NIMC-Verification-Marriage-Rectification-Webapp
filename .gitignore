@@ -1,0 +1,7 @@
+node_modules/
+build/
+dist/
+tempvideos/
+logs/
+intermediate/
+backend/

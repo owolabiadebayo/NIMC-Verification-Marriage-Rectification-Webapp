@@ -35,8 +35,26 @@ const amount = koboAmount + 0;
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: () =>
-      alert("Thanks for doing business with us! Come back soon!!"),
+    onSuccess: (transaction) => {
+      const { reference } = transaction;
+      const transactionId = reference
+    console.log("Payment successful! Transaction ID: " + transactionId);
+      axios.post("https://your-fastapi-endpoint.com/payment", {
+        name,
+         newName,
+        affidavit,
+        publication,
+        notified,
+        transactionId
+      })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      alert("Thanks for doing business with us! Come back soon!!");
+    },
     onClose: () => alert("Wait! Don't leave :("),
   };
 

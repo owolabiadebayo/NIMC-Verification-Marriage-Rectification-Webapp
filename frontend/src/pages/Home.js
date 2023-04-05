@@ -8,20 +8,34 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const [affidavit, setAffidavit] = useState(null);
+  const [affidavit, setAffidavit] = useState("");
   const [publication, setPublication] = useState("");
   const [notified, setNotified] = useState("");
   const [name, setName] = useState('');
   const [newName, setNewName] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   
   
   
   
+
 
   const handleFileSelect = (event) => {
-    setAffidavit(event.target.files[0]);
+    const file = event.target.files[0];
+    setImageUrl(file)
+  
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+  
+      reader.onload = () => {
+        const dataUrl = reader.result;
+        // dataUrl is the base64-encoded string representation of the file
+        setAffidavit(dataUrl)
+      };
+    }
   };
-
+  
   const handleOptionSelect = (event) => {
     setPublication(event.target.value);
   };
@@ -30,13 +44,14 @@ function Home() {
   };
 
   const handleSubmit = (event) => {
-    
     event.preventDefault();
-    dispatch(setData(name,newName, affidavit,publication,notified));
-    // Redirect to payment page
-    navigate('/payment');
-    // console.log(name,newName, affidavit,publication,notified)
+    Promise.resolve(dispatch(setData(name, newName, affidavit, publication, notified)))
+      .then(() => {
+        // Redirect to payment page
+        navigate('/payment');
+      });
   };
+  
   return (
     <div className="container">
       <div className="nav-container">
@@ -107,7 +122,7 @@ function Home() {
                 style={{ display: "none" }}
               />
               <i class="fa-solid fa-file-pdf"></i>
-              {affidavit && <p className="file-input" style={{marginTop:"0.4rem"}}>{affidavit.name}</p>}
+              {imageUrl && <p className="file-input" style={{marginTop:"0.4rem"}}>{imageUrl.name}</p>}
             </label>
             <p>
               Choose your Publication type

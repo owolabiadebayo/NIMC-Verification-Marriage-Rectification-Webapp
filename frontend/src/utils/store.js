@@ -1,8 +1,9 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import thunk from 'redux-thunk';
 
-import { SET_DATA } from './actions';
+import { SET_DATA, UPLOAD_FILE } from './actions';
 
 const initialState = {
   name: '',
@@ -23,7 +24,7 @@ const reducer = (state = initialState, action) => {
         publication: action.payload.publication,
         notified: action.payload.notified,
       };
-      default:
+    default:
       return state;
   }
 };
@@ -39,5 +40,12 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = createStore(persistedReducer);
+const middleware = [thunk];
+
+export const store = createStore(
+  persistedReducer,
+  applyMiddleware(...middleware)
+);
 export const persistor = persistStore(store);
+
+export default store;
