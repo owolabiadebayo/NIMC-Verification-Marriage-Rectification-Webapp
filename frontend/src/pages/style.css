@@ -238,7 +238,7 @@ color: #000000;
 opacity: 1;
 }
 .footer-container{
-    height: 20vh;
+    height: 100px;
     background: #000066 0% 0% no-repeat padding-box;
 opacity: 1;
 width: 100%;
@@ -253,12 +253,12 @@ width: 100%;
 }
 .footer-header{
     color: white;
-    width: 50%;
+    width: 35%;
 }
 .footer-content{
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 65%;
     justify-content: space-around;
 }
 .footer-content a{
@@ -268,6 +268,91 @@ width: 100%;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;
+}
+.download-boxes{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+    
+}
+.download{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.card-top{
+    height: 250px;
+    background-color: #eee;
+}
+.card-bottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    border: 1px solid #eee;
+   
+}
+.card-bottom i {
+    font-size: 1.5rem;
+    cursor: pointer;
+
+}
+.card-bottom p{
+    font-size: 1.2rem;
+}
+.download-box{
+    width: 25%;
+    margin-top: 2rem;
+   
+
+}
+.image-container{
+    height: 70vh;
+    width: 100%;
+}
+.image-nin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+}
+.image-input{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000066;
+    border-radius: 42px;
+    border: 0;
+    opacity: 1;
+    height: 60px;
+    margin-top: 0.4rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin: 1rem auto;
+}
+.image-submit{
+    background: #000066 0% 0% no-repeat padding-box;
+box-shadow: 0px 3px 6px #000066;
+border-radius: 50px;
+opacity: 1;
+width: 20%;
+margin-top: 4rem;
+text-align: center;
+font: normal normal bold 45px/57px Lato;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+
 }
 @media screen and (max-width:900px){
     .publish-container{

@@ -182,6 +182,7 @@ function Home() {
             </h2>
           </div>
           <div className="footer-content">
+            <a href="/instruction">How to generate NIN</a>
             <a href="#">Terms and Condition</a>
             <a href="#">About Us</a>
             <a href="#">Privacy Policy</a>
