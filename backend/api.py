@@ -6,6 +6,8 @@ from database.connection import get_session
 from database.connection import conn
 from fastapi.responses import JSONResponse
 from models.models import User
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI(
     title="API NIMC",
@@ -16,6 +18,17 @@ app = FastAPI(
         "email":"adamadaniel321@gmail.com"
     }
 )
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.on_event("startup")
 def on_startup():
