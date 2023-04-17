@@ -55,7 +55,7 @@ function Download() {
             </div>
           </div>
 
-          <div className="nav-download">Print</div>
+          <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div>
         </div>
       </div>
       <div className="download">
@@ -101,7 +101,7 @@ function Download() {
             </h2>
           </div>
           <div className="footer-content">
-            <a href="#">How to generate NIN</a>
+            
             <a href="#">Terms and Condition</a>
             <a href="#">About Us</a>
             <a href="#">Privacy Policy</a>

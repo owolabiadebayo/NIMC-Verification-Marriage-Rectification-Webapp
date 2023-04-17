@@ -147,3 +147,18 @@ box-shadow: 0px 3px 20px #00000047;
   .paystack-button:focus {
     outline: none;
   }
+  @media screen and (max-width:900px){
+    .payment-boxes{
+        flex-direction: column;
+
+    }
+    .payment-box{
+        width:75%
+
+    }
+    .checkout-form{
+      width:85%
+
+    }
+    
+}

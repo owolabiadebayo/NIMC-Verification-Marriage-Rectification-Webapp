@@ -10,7 +10,9 @@ const initialState = {
   newName: '',
   affidavit: '',
   publication: '',
-  notified: '',
+  persons: '',
+  transactionId: '',
+  imageData:"",
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +24,9 @@ const reducer = (state = initialState, action) => {
         newName: action.payload.newName,
         affidavit: action.payload.affidavit,
         publication: action.payload.publication,
-        notified: action.payload.notified,
+        persons: action.payload.persons,
+        transactionId: action.payload.transactionId,
+        imageData: action.payload.imageData,
       };
     default:
       return state;

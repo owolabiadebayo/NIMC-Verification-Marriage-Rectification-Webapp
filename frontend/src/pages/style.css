@@ -42,7 +42,7 @@ opacity: 1;
     color: #000066;
 }
 .nav-download{
-    width: 198px;
+
 height: 64px;
 color: white;
 display: flex;
@@ -357,6 +357,47 @@ opacity: 1;
 @media screen and (max-width:900px){
     .publish-container{
         flex-direction: column;
+
     }
-    
+    .publish{
+        width: 100%;
+    }
+    .publish-form{
+        width: 100%;
+    }
+    .nav-container{
+        height: auto;
+    }
+    .nav{
+        flex-direction: column;
+    }
+    .nav-image{
+        width: 100%;
+        margin-bottom: 3rem;
+        
+    }
+    .nav-download{
+        width: 100%;
+        height: auto;
+        text-align: center;
+
+    }
+    .form-box button {
+        font: normal normal bold 35px/47px Lato;
+    }
+    .footer-container{
+        height: auto;
+    }
+    .footer{
+        flex-direction: column;
+    }
+    .footer-header{
+        width: 100%;
+    }
+    .footer-content{
+        width: 100%;
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

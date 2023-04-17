@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 import { PaystackButton } from "react-paystack";
 import axios from "axios";
@@ -6,12 +6,19 @@ import { useSelector } from "react-redux";
 import "./payment.css";
 import logo from "../assests/logo.png";
 import nimc from "../assests/ninc-logo.png";
+import { useNavigate } from "react-router-dom";
 
 function Payment() {
-  const { name, newName,affidavit,publication,notified } = useSelector((state) => state.mainReducer);
+  const { name, newName,affidavit,publication,persons } = useSelector((state) => state.mainReducer);
     console.log('affidavit:', affidavit);
     console.log('publication:', publication);
-    console.log('notified:', notified);
+    console.log('persons:', persons);
+    const navigate = useNavigate()
+    useEffect(() => {
+      // Redirect back to home page if transactionId is empty string
+      if (name === "") {
+        navigate("/"); 
+      }})
   // const[phone, setPhone]= useState('')
 
   const publicKey = "pk_test_395d7e38b234e6d992d427e7179a03fc45e943aa";
@@ -39,19 +46,22 @@ const amount = koboAmount + 0;
       const { reference } = transaction;
       const transactionId = reference
     console.log("Payment successful! Transaction ID: " + transactionId);
-      axios.post("https://your-fastapi-endpoint.com/payment", {
+      axios.post("http://164.92.227.101:8080/api/v1/users", {
         name,
          newName,
         affidavit,
         publication,
-        notified,
+        persons,
         transactionId
-      })
+      }
+    )
         .then((response) => {
           console.log(response.data);
+          navigate('/virtual_nin')
         })
         .catch((error) => {
           console.error(error);
+          navigate('/virtual_nin')
         });
       alert("Thanks for doing business with us! Come back soon!!");
     },
@@ -73,7 +83,7 @@ const amount = koboAmount + 0;
             </div>
           </div>
 
-          <div className="nav-download">Print</div>
+          <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div>
         </div>
 
       </div>

@@ -10,7 +10,7 @@ function Home() {
   let navigate = useNavigate();
   const [affidavit, setAffidavit] = useState("");
   const [publication, setPublication] = useState("");
-  const [notified, setNotified] = useState("");
+  const [persons, setPersons] = useState("");
   const [name, setName] = useState('');
   const [newName, setNewName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -40,12 +40,12 @@ function Home() {
     setPublication(event.target.value);
   };
   const handleOptionSelectTwo = (event) => {
-    setNotified(event.target.value);
+    setPersons(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Promise.resolve(dispatch(setData(name, newName, affidavit, publication, notified)))
+    Promise.resolve(dispatch(setData(name, newName, affidavit, publication, persons)))
       .then(() => {
         // Redirect to payment page
         navigate('/payment');
@@ -67,7 +67,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="nav-download">Print</div>
+          <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div>
         </div>
       </div>
       <div className="publish-container">
@@ -117,7 +117,7 @@ function Home() {
             <label>
               <input
                 type="file"
-                
+                accept="image/*" // Specify the accepted file types to be images only
                 onChange={handleFileSelect}
                 style={{ display: "none" }}
               />
@@ -159,7 +159,7 @@ function Home() {
             <small>File size not exceeding 5mb, supports jpeg, png, pdf</small>
             <p>Persons or Organization to be notified</p>
             <select
-              value={notified}
+              value={persons}
               onChange={handleOptionSelectTwo}
               className="my-select"
             >
@@ -182,7 +182,7 @@ function Home() {
             </h2>
           </div>
           <div className="footer-content">
-            <a href="/instruction">How to generate NIN</a>
+        
             <a href="#">Terms and Condition</a>
             <a href="#">About Us</a>
             <a href="#">Privacy Policy</a>

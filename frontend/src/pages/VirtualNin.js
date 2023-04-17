@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assests/logo.png";
 import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import {  useNavigate } from "react-router-dom";
+import { setData } from "../utils/actions";
 function VirtualNin() {
+  const { name,newName,notified,publication,persons,transactionId } = useSelector((state) => state.mainReducer);
+  const navigate = useNavigate()
   const [responseData, setResponseData] = useState(null);
   const endpointUrl =
     "https://tk.nimc.gov.ng/api/v1/apiVerification/enterprise/direct/vNIN";
@@ -11,6 +16,20 @@ function VirtualNin() {
   const agentID = "MQSSKY-4549";
   const RPShortCode = "119887";
   const vNIN = "JR855898754235V5";
+  const dispatch = useDispatch()
+  const imageData ="base 64";
+
+  const handleContinue = () => {
+    
+    dispatch(setData(name,newName,notified,publication,persons,transactionId,imageData))
+      navigate("/download")
+    
+  };
+  useEffect(() => {
+    // Redirect back to navigate page if transactionId is empty string
+    if (transactionId === "") {
+      navigate("/payment"); // Replace "/navigate" with the actual URL of your navigate page
+    }})
   useEffect(() => {
     async function callApi() {
       try {
@@ -64,7 +83,7 @@ function VirtualNin() {
             </div>
           </div>
 
-          <div className="nav-download">Print</div>
+          <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div>
         </div>
       </div>
       <div className="image-container">
@@ -78,7 +97,7 @@ function VirtualNin() {
             alt="Angular" style={{width:'100%'}}
           />
         </div>
-        <div className="image-submit">Submit</div>
+        <div className="image-submit"onClick={handleContinue} >Continue</div>
         </div>
      
       </div>
@@ -94,7 +113,7 @@ function VirtualNin() {
             </h2>
           </div>
           <div className="footer-content">
-            <a href="#">How to generate NIN</a>
+        =
             <a href="#">Terms and Condition</a>
             <a href="#">About Us</a>
             <a href="#">Privacy Policy</a>
