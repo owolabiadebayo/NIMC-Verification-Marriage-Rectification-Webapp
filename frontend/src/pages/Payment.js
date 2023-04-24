@@ -46,7 +46,7 @@ const amount = koboAmount + 0;
       const { reference } = transaction;
       const transactionId = reference
     console.log("Payment successful! Transaction ID: " + transactionId);
-      axios.post("http://164.92.227.101:8080/api/v1/users", {
+      axios.post("http://165.232.65.56:8080/api/v1/users", {
         name,
          newName,
         affidavit,
@@ -83,7 +83,7 @@ const amount = koboAmount + 0;
             </div>
           </div>
 
-          <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div>
+          {/* <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div> */}
         </div>
 
       </div>

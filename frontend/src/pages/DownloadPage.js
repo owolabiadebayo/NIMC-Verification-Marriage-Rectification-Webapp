@@ -55,7 +55,7 @@ function Download() {
             </div>
           </div>
 
-          <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div>
+          {/* <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div> */}
         </div>
       </div>
       <div className="download">

@@ -83,10 +83,13 @@ function VirtualNin() {
             </div>
           </div>
 
-          <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div>
+          {/* <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div> */}
         </div>
       </div>
       <div className="image-container">
+        <div className="download-nin" style={{marginLeft:"1rem"}}>
+       <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div> 
+        </div>
         <div className="image-nin">
       
             <input className="image-input"type="text"/>
