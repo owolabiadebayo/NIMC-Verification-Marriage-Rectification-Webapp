@@ -58,7 +58,7 @@ function Home() {
         <div className="nav">
           <div className="nav-image">
             <div className="logo">
-              <img src={logo} />
+              <img src={logo} style={{height:"80px"}}/>
             </div>
             <div className="nav-logo-text">
               <h2>
@@ -74,7 +74,7 @@ function Home() {
         <div className="publish">
           <div className="publish-section-header">
             <h2 className="publish-header">
-              Publish your change of name online and get:
+              Now you can publish your change of name online and get:
             </h2>
             <div className="publish-content">
               <i class="fa-solid fa-forward"></i>
@@ -96,10 +96,10 @@ function Home() {
               <p>National Newspaper Placement.</p>
             </div>
           </div>
-          <div className="publish-section-footer">
+          {/* <div className="publish-section-footer">
             <p>Certified and trusted by:</p>
             <img src={nimc} />
-          </div>
+          </div> */}
         </div>
         <div className="publish-form">
           <form className="form-box" onSubmit={handleSubmit}> 
@@ -112,7 +112,7 @@ function Home() {
             </p>
             <input className="form-box-input" type="text" value={newName}  onChange={(e) => setNewName(e.target.value)} />
             <p>
-              Upload Court Affidavit<span className="form-box-asterix">*</span>
+              Upload your Affidavit/ marriage certificate or other documents <span className="form-box-asterix">*</span>
             </p>
             <label>
               <input

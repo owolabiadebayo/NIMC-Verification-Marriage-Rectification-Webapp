@@ -12,7 +12,7 @@ export default function Instructions() {
         <div className="nav">
           <div className="nav-image">
             <div className="logo">
-              <img src={logo} />
+              <img src={logo} style={{height:"80px"}}  />
             </div>
             <div className="nav-logo-text">
               <h2>

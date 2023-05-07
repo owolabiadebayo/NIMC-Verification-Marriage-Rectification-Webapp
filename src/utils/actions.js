@@ -14,7 +14,7 @@ export const setData = (name, newName, affidavit, publication, persons,transacti
         publication,
         persons,
         transactionId,
-        imageData
+        imageData,
       },
     });
   };

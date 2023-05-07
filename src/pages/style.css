@@ -291,8 +291,13 @@ opacity: 1;
     width: 100%;
 }
 .card-top{
-    height: 250px;
+    height: 240px;
+    width: 100%;
     background-color: #eee;
+    background-image: url(../assests/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+ 
 }
 .card-bottom{
     display: flex;
@@ -308,11 +313,12 @@ opacity: 1;
 
 }
 .card-bottom p{
-    font-size: 1.2rem;
+    font-size: 1.0rem;
 }
 .download-box{
     width: 25%;
     margin-top: 2rem;
+  
    
 
 }
@@ -328,14 +334,14 @@ opacity: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
 }
 .download-nin{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    
 }
 .image-input{
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -343,6 +349,7 @@ opacity: 1;
     border-radius: 42px;
     border: 0;
     opacity: 1;
+    width: 805;
     height: 60px;
     margin-top: 0.4rem;
     padding: 1rem;
@@ -357,16 +364,31 @@ opacity: 1;
 width: 30%;
 margin-top: 4rem;
 text-align: center;
-font: normal normal bold 45px/57px Lato;
+font: normal normal bold 30px/25px Lato;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;
+margin-bottom: 1rem;
+cursor: pointer;
 
+}
+.nav-download{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-radius: 30px;
 }
 @media screen and (max-width:900px){
     .publish-container{
         flex-direction: column;
 
+    }
+    .download-nin{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
     }
     .publish{
         width: 100%;
@@ -380,17 +402,27 @@ opacity: 1;
     .nav{
         flex-direction: column;
     }
+    .download-boxes{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 70vh;
+        
+    }
     .nav-image{
         width: 100%;
         margin-bottom: 3rem;
         
     }
-    .nav-download{
+    /* .nav-download{
         width: 100%;
         height: auto;
         text-align: center;
+        border-radius: 30px;
+        margin: auto !important;
 
-    }
+    } */
     .form-box button {
         font: normal normal bold 35px/47px Lato;
     }
@@ -409,4 +441,43 @@ opacity: 1;
         flex-direction: column;
         align-items: flex-start;
     }
+    .card-top{
+        height: 120px;
+        width: 100%;
+        background-color: #eee;
+        background-image: url(../assests/logo.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+     
+    }
+    .image-container{
+        height: 100% !important;
+        width: 100% !important;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-download{
+        width: 100%;
+        height: auto;
+        text-align: center;
+        border-radius: 30px;
+
+    }
+    .image-submit{
+        background: #000066 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #000066;
+        border-radius: 50px;
+        opacity: 1;
+        width: 50%;
+        margin-top: 4rem;
+        text-align: center;
+        font: normal normal bold 35px/40px Lato;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        opacity: 1;
+        margin-bottom: 1rem;
+        
+        }
+   
 }

@@ -7,6 +7,8 @@ import "./payment.css";
 import logo from "../assests/logo.png";
 import nimc from "../assests/ninc-logo.png";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Payment() {
   const { name, newName,affidavit,publication,persons } = useSelector((state) => state.mainReducer);
@@ -45,8 +47,22 @@ const amount = koboAmount + 0;
     onSuccess: (transaction) => {
       const { reference } = transaction;
       const transactionId = reference
-    console.log("Payment successful! Transaction ID: " + transactionId);
-      axios.post("http://165.232.65.56:8080/api/v1/users", {
+    // console.log("Payment successful! Transaction ID: " + transactionId);
+    if (transactionId === "" || transactionId === undefined || transactionId === null){
+      toast('transaction unsuccessfull', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    } else {
+      toast("transaction successfull")
+    }
+      axios.post("https://nimc.onrender.com/api/adddata/", {
         name,
          newName,
         affidavit,
@@ -61,20 +77,23 @@ const amount = koboAmount + 0;
         })
         .catch((error) => {
           console.error(error);
-          navigate('/virtual_nin')
+          navigate('/payment')
         });
-      alert("Thanks for doing business with us! Come back soon!!");
+      
     },
-    onClose: () => alert("Wait! Don't leave :("),
+    
   };
+ 
 
   return (
+    <>
+    <ToastContainer />
     <div className="container ">
       <div className="nav-container">
         <div className="nav">
           <div className="nav-image">
             <div className="logo">
-              <img src={logo} />
+              <img src={logo} style={{height:"80px"}} />
             </div>
             <div className="nav-logo-text">
               <h2>
@@ -158,6 +177,8 @@ const amount = koboAmount + 0;
         </div>
       </div>
     </div>
+    </>
   );
+  
 }
 export default Payment;

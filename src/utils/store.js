@@ -12,7 +12,7 @@ const initialState = {
   publication: '',
   persons: '',
   transactionId: '',
-  imageData:"",
+  imageData:'',
 };
 
 const reducer = (state = initialState, action) => {
