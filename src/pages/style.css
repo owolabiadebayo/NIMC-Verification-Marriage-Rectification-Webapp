@@ -488,6 +488,15 @@ cursor: pointer;
         flex-direction: column;
 
     }
+    .publish-content p{
+        text-align: left;
+    font: normal normal normal 20px/30px Lato;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    padding-top: 0;
+    margin-left: 1rem;
+    }
     .publish-header{
         text-align: left;
     font: normal normal 900 30px/40px Lato;
