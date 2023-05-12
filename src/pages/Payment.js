@@ -183,7 +183,7 @@ function Payment() {
             <div className="footer-header">
               <h2>
                 {" "}
-                &copy; 2023 <br /> Geosoft Solutions Limited{" "}
+                &copy; 2023 <br /> The Classified Newspaper{" "}
               </h2>
             </div>
             <div className="footer-content">
