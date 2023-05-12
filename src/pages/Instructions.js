@@ -13,10 +13,10 @@ export default function Instructions() {
               <div className="logo">
                 <img src={logo} style={{ height: "80px" }} />
               </div>
-              <div className="nav-download1">
-                <p>Phone Nos1: 09090909137 </p>
-                <p>Phone Nos2: 09090909136 </p>
-              </div>
+            </div>
+            <div className="nav-download1">
+              <p>Phone Nos1: 09090909137 </p>
+              <p>Phone Nos2: 09090909136 </p>
             </div>
 
             {/* <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div> */}
