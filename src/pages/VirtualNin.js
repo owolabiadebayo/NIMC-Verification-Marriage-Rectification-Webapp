@@ -119,6 +119,10 @@ function VirtualNin() {
                   <img src={logo} style={{ height: "80px" }} />
                 </div>
               </div>
+              <div className="nav-download1">
+                <p>Phone Nos1: 09090909137 </p>
+                <p>Phone Nos2: 09090909136 </p>
+              </div>
             </div>
           </div>
           <div class="marquee">

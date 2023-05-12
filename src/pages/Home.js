@@ -60,7 +60,10 @@ function Home() {
             </div>
           </div>
 
-          {/* <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div> */}
+          <div className="nav-download1">
+            <p>Phone Nos1: 09090909137 </p>
+            <p>Phone Nos2: 09090909136 </p>
+          </div>
         </div>
       </div>
       <div class="marquee">
@@ -172,7 +175,6 @@ function Home() {
               onChange={handleOptionSelectTwo}
               className="my-select"
             >
-              <option value=""></option>
               <option value="General Public">General Public</option>
             </select>
             <p>

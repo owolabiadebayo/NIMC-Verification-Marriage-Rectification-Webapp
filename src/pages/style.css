@@ -106,6 +106,26 @@ opacity: 1;
 background: #000066 0% 0% no-repeat padding-box;
 opacity: 1;
 }
+.nav-download1{
+
+    /* height: 64px; */
+    color: white;
+   
+    text-align: left;
+    font: normal normal normal 18px/16px Poppins;
+    letter-spacing: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    opacity: 1;
+    background: #000066 0% 0% no-repeat padding-box;
+    opacity: 1;
+    }
+    .nav-download1 p{
+
+    /* height: 64px; */
+    margin: 7px;
+    
+    }
 .publish-container{
     width: 90%;
     margin: 2rem auto;
