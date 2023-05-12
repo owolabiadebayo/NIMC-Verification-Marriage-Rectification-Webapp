@@ -1,41 +1,38 @@
 import React, { useState } from "react";
 import "./style.css";
 import logo from "../assests/logo.png";
-import nimc from "../assests/ninc-logo.png";
-import { useDispatch } from 'react-redux';
-import { setData } from '../utils/actions';
-import { useNavigate } from 'react-router-dom';
+import logo1 from "../assests/LIC.png";
+import { useDispatch } from "react-redux";
+import { setData } from "../utils/actions";
+import { useNavigate } from "react-router-dom";
+
 function Home() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const [affidavit, setAffidavit] = useState("");
   const [publication, setPublication] = useState("");
   const [persons, setPersons] = useState("");
-  const [name, setName] = useState('');
-  const [newName, setNewName] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  
-  
-  
-  
-
+  const [others, setOthers] = useState("");
+  const [name, setName] = useState("");
+  const [newName, setNewName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
-    setImageUrl(file)
-  
+    setImageUrl(file);
+
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
-  
+
       reader.onload = () => {
         const dataUrl = reader.result;
         // dataUrl is the base64-encoded string representation of the file
-        setAffidavit(dataUrl)
+        setAffidavit(dataUrl);
       };
     }
   };
-  
+
   const handleOptionSelect = (event) => {
     setPublication(event.target.value);
   };
@@ -45,36 +42,41 @@ function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Promise.resolve(dispatch(setData(name, newName, affidavit, publication, persons)))
-      .then(() => {
-        // Redirect to payment page
-        navigate('/payment');
-      });
+    Promise.resolve(
+      dispatch(setData(name, newName, affidavit, publication, persons, others))
+    ).then(() => {
+      // Redirect to payment page
+      navigate("/payment");
+    });
   };
-  
+
   return (
     <div className="container">
       <div className="nav-container">
         <div className="nav">
           <div className="nav-image">
             <div className="logo">
-              <img src={logo} style={{height:"80px"}}/>
-            </div>
-            <div className="nav-logo-text">
-              <h2>
-                GEOSOFT <br /> SOLUTIONS <br /> LIMITED
-              </h2>
+              <img src={logo} style={{ height: "80px" }} />
             </div>
           </div>
 
           {/* <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div> */}
         </div>
       </div>
+      <div class="marquee">
+        <div>
+          Caution!!! This service is for the purpose of NEwspaper publication
+          only and does not in any way seek to modify, update or alter your
+          already existing information of your NIN in the National identity
+          Management Commision(NIMC) database
+        </div>
+      </div>
       <div className="publish-container">
         <div className="publish">
           <div className="publish-section-header">
             <h2 className="publish-header">
-              Now you can publish your change of name online and get:
+              Good news! you can now link your change of name,newspaper
+              publication with your NIN and get:
             </h2>
             <div className="publish-content">
               <i class="fa-solid fa-forward"></i>
@@ -96,23 +98,33 @@ function Home() {
               <p>National Newspaper Placement.</p>
             </div>
           </div>
-          {/* <div className="publish-section-footer">
-            <p>Certified and trusted by:</p>
-            <img src={nimc} />
-          </div> */}
+          <div className="publish-section-footer">
+            <p>Approved by NIMC</p>
+            <img src={logo1} />
+          </div>
         </div>
         <div className="publish-form">
-          <form className="form-box" onSubmit={handleSubmit}> 
+          <form className="form-box" onSubmit={handleSubmit}>
             <p>
               Input Old Name<span className="form-box-asterix">*</span>
             </p>
-            <input className="form-box-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            <input
+              className="form-box-input"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             <p>
               New Name<span className="form-box-asterix">*</span>
             </p>
-            <input className="form-box-input" type="text" value={newName}  onChange={(e) => setNewName(e.target.value)} />
+            <input
+              className="form-box-input"
+              type="text"
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+            />
             <p>
-              Upload your Affidavit/ marriage certificate or other documents <span className="form-box-asterix">*</span>
+              Upload your Affidavit/ marriage certificate or other documents
             </p>
             <label>
               <input
@@ -121,9 +133,14 @@ function Home() {
                 onChange={handleFileSelect}
                 style={{ display: "none" }}
               />
-              <i class="fa-solid fa-file-pdf"></i>
-              {imageUrl && <p className="file-input" style={{marginTop:"0.4rem"}}>{imageUrl.name}</p>}
+              <i class="fa-solid fa-file"></i>
+              {imageUrl && (
+                <p className="file-input" style={{ marginTop: "0.4rem" }}>
+                  {imageUrl.name}
+                </p>
+              )}
             </label>
+            <small>File size not exceeding 5mb, supports jpeg, png, pdf</small>
             <p>
               Choose your Publication type
               <span className="form-box-asterix">*</span>
@@ -134,30 +151,22 @@ function Home() {
               className="my-select"
             >
               <option value=""></option>
-              <option value="4000">
+              <option value="4800">
                 {" "}
-                Classified
+                Change of Name
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
-                <span className="form-box-amount">N4000</span>{" "}
+                <span className="form-box-amount">N4800</span>{" "}
               </option>
-              <option value="6000">
-                1 A4
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="form-box-amount">N6000</span>
-              </option>
-              <option value="8000">
-                1 A4
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="form-box-amount">N8000</span>
-              </option>
-              <option value="8000">
-                A4
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="form-box-amount">N8000</span>
+              <option value="4750">
+                Data Modification publication for NIMC
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span className="form-box-amount">N4750</span>
               </option>
             </select>
-            <small>File size not exceeding 5mb, supports jpeg, png, pdf</small>
-            <p>Persons or Organization to be notified</p>
+            <p>
+              General public to be notified{" "}
+              <span className="form-box-asterix">*</span>
+            </p>
             <select
               value={persons}
               onChange={handleOptionSelectTwo}
@@ -165,9 +174,18 @@ function Home() {
             >
               <option value=""></option>
               <option value="General Public">General Public</option>
-              <option value="Other">Other</option>
             </select>
-
+            <p>
+              Persons or Organization to be notified{" "}
+              <span className="form-box-asterix">*</span>
+            </p>
+            <input
+              className="form-box-input"
+              type="text"
+              value={others}
+              onChange={(e) => setOthers(e.target.value)}
+            />
+            <small>Please limit your message to 5 words or less.</small>
             <button type="submit">Continue</button>
           </form>
         </div>
@@ -178,11 +196,10 @@ function Home() {
           <div className="footer-header">
             <h2>
               {" "}
-              &copy; 2023 <br /> Geosoft Solutions Limited{" "}
+              &copy; 2023 <br /> The Classified Newspaper{" "}
             </h2>
           </div>
           <div className="footer-content">
-        
             <a href="#">Terms and Condition</a>
             <a href="#">About Us</a>
             <a href="#">Privacy Policy</a>
@@ -190,7 +207,7 @@ function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

@@ -1,18 +1,21 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { persistReducer, persistStore } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import thunk from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import thunk from "redux-thunk";
 
-import { SET_DATA, UPLOAD_FILE } from './actions';
+import { SET_DATA, UPLOAD_FILE } from "./actions";
 
 const initialState = {
-  name: '',
-  newName: '',
-  affidavit: '',
-  publication: '',
-  persons: '',
-  transactionId: '',
-  imageData:'',
+  name: "",
+  newName: "",
+  affidavit: "",
+  publication: "",
+  persons: "",
+  others: "",
+  transactionId: "",
+  imageData: "",
+  dob: "",
+  dob1: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,8 +28,11 @@ const reducer = (state = initialState, action) => {
         affidavit: action.payload.affidavit,
         publication: action.payload.publication,
         persons: action.payload.persons,
+        others: action.payload.others,
         transactionId: action.payload.transactionId,
         imageData: action.payload.imageData,
+        dob: action.payload.dob,
+        dob1: action.payload.dob1,
       };
     default:
       return state;
@@ -38,7 +44,7 @@ const rootReducer = combineReducers({
 });
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
 };
 
