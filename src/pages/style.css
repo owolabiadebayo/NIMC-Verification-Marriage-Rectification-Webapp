@@ -488,6 +488,13 @@ cursor: pointer;
         flex-direction: column;
 
     }
+    .publish-header{
+        text-align: left;
+    font: normal normal 900 30px/40px Lato;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
     .download-nin{
         display: flex;
         justify-content: center;

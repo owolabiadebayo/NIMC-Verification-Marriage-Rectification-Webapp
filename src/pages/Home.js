@@ -175,6 +175,7 @@ function Home() {
               onChange={handleOptionSelectTwo}
               className="my-select"
             >
+              <option value=""></option>
               <option value="General Public">General Public</option>
             </select>
             <p>

@@ -12,9 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 import LoadingSpinner from "./Loadingspinner";
 
 function Payment() {
-  const { name, newName, affidavit, publication, persons } = useSelector(
-    (state) => state.mainReducer
-  );
+  const { name, newName, affidavit, publication, persons, others } =
+    useSelector((state) => state.mainReducer);
   const [isLoading, setIsLoading] = useState(false);
   console.log(isLoading);
   const navigate = useNavigate();
@@ -49,7 +48,6 @@ function Payment() {
     onSuccess: (transaction) => {
       const { reference } = transaction;
       const transactionId = reference;
-      console.log(transactionId);
 
       // console.log("Payment successful! Transaction ID: " + transactionId);
       if (
@@ -101,10 +99,7 @@ function Payment() {
                 <img src={logo} style={{ height: "80px" }} />
               </div>
             </div>
-            <div className="nav-download1">
-              <p>Phone Nos1: 09090909137 </p>
-              <p>Phone Nos2: 09090909136 </p>
-            </div>
+
             {/* <div className="nav-download"> <a href="/instruction" style={{textDecoration:'none',color:"white"}}>How to generate vnin</a> </div> */}
           </div>
         </div>
@@ -134,7 +129,7 @@ function Payment() {
               <h5 style={{ marginTop: "0.5rem" }}>Classified</h5>
 
               <h3 style={{ marginTop: "0.5rem" }}>Price: N{publication}</h3>
-
+              {/* <h3 style={{ marginTop: "0.5rem" }}>Vat: - N700</h3> */}
               <h3
                 style={{
                   marginTop: "0.5rem",
@@ -186,7 +181,7 @@ function Payment() {
             <div className="footer-header">
               <h2>
                 {" "}
-                &copy; 2023 <br /> The Classified Newspaper{" "}
+                &copy; 2023 <br /> Geosoft Solutions Limited{" "}
               </h2>
             </div>
             <div className="footer-content">
