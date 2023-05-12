@@ -100,7 +100,7 @@ function Datamodification() {
                 <div className="card-top"></div>{" "}
                 <div className="card-bottom">
                   <div>
-                    <Link href="/users">Recent publication</Link>{" "}
+                    <Link to="/users">Recent publication</Link>{" "}
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
