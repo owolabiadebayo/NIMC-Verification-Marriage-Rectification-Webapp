@@ -4,6 +4,7 @@ import "./instructions.css";
 import logo from "../assests/logo.png";
 // import logo1 from "../assests/ninc-logo.png";
 import backgroundImage from "../assests/LAYOUT 6.jpg";
+import { Link } from "react-router-dom";
 
 function Datamodification() {
   const { newName, name, imageData, others, dob, dob1 } = useSelector(
@@ -99,7 +100,7 @@ function Datamodification() {
                 <div className="card-top"></div>{" "}
                 <div className="card-bottom">
                   <div>
-                    <a href="/users">Recent publication</a>{" "}
+                    <Link href="/users">Recent publication</Link>{" "}
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>

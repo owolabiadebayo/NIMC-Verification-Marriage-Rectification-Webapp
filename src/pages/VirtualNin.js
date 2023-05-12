@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import image from "../assests/image.jpeg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 function VirtualNin() {
   const {
     name,
@@ -137,8 +138,8 @@ function VirtualNin() {
             <div className="download-nin" style={{ marginLeft: "1rem" }}>
               <div className="nav-download">
                 {" "}
-                <a
-                  href="/instruction"
+                <Link
+                  to="/instruction"
                   style={{
                     textDecoration: "none",
                     color: "white",
@@ -147,7 +148,7 @@ function VirtualNin() {
                   }}
                 >
                   how to generate vnin
-                </a>{" "}
+                </Link>{" "}
               </div>
             </div>
             <div className="image-nin ">

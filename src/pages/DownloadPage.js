@@ -4,6 +4,7 @@ import "./instructions.css";
 import logo from "../assests/logo.png";
 import logo1 from "../assests/ninc-logo.png";
 import backgroundImage from "../assests/12.jpg";
+import { Link } from "react-router-dom";
 
 function Download() {
   const { newName, name, imageData, others } = useSelector(
@@ -96,7 +97,7 @@ function Download() {
                 <div className="card-top"></div>{" "}
                 <div className="card-bottom">
                   <div>
-                    <a href="/users">Recent publication</a>{" "}
+                    <Link to="/users">Recent publication</Link>{" "}
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
