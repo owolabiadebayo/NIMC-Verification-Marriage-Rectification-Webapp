@@ -35,7 +35,7 @@ function Download() {
 
     // Add image to PDF
     doc.addImage(
-      logo1,
+      imageData,
       "PNG",
       doc.internal.pageSize.getWidth() - 67,
       100,

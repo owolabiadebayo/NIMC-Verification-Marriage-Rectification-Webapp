@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import jsPDF from "jspdf";
 import "./instructions.css";
 import logo from "../assests/logo.png";
-import logo1 from "../assests/ninc-logo.png";
+// import logo1 from "../assests/ninc-logo.png";
 import backgroundImage from "../assests/LAYOUT 6.jpg";
 
 function Datamodification() {
@@ -32,15 +32,15 @@ function Datamodification() {
       doc.internal.pageSize.getHeight()
     );
 
-    // Add image to PDF
-    doc.addImage(
-      logo1,
-      "PNG",
-      doc.internal.pageSize.getWidth() - 67,
-      100,
-      60,
-      60
-    );
+    // // Add image to PDF
+    // doc.addImage(
+    //   logo1,
+    //   "PNG",
+    //   doc.internal.pageSize.getWidth() - 67,
+    //   100,
+    //   60,
+    //   60
+    // );
 
     // Add text to PDF
     doc.setFontSize(20);
@@ -48,7 +48,7 @@ function Datamodification() {
     doc.setFontSize(20);
     doc.text(` ${newName} `, 35, 173.5);
     doc.setFontSize(20);
-    doc.text(` ${dob} `, 73, 184);
+    doc.text(` ${dob} `, 69, 184);
     doc.setFontSize(20);
     doc.text(`${name}`, 10, 195);
     doc.setFontSize(20);
