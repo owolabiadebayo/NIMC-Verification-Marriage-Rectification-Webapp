@@ -15,7 +15,7 @@ function Payment() {
   const { name, newName, affidavit, publication, persons, others } =
     useSelector((state) => state.mainReducer);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(isLoading);
+
   const navigate = useNavigate();
   useEffect(() => {
     // Redirect back to home page if transactionId is empty string
@@ -28,6 +28,7 @@ function Payment() {
   const publicKey = "pk_test_395d7e38b234e6d992d427e7179a03fc45e943aa";
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [isValid, setIsValid] = useState(false);
   const [paystackName, setPaystackName] = useState("");
   let numberChange = parseInt(publication);
   const vat = 0;
@@ -49,7 +50,6 @@ function Payment() {
       const { reference } = transaction;
       const transactionId = reference;
 
-      // console.log("Payment successful! Transaction ID: " + transactionId);
       if (
         transactionId === "" ||
         transactionId === undefined ||
@@ -78,7 +78,6 @@ function Payment() {
           transactionId,
         })
         .then((response) => {
-          console.log(response);
           navigate("/virtual_nin");
         })
         .catch((error) => {
@@ -86,6 +85,25 @@ function Payment() {
         });
       setIsLoading(true);
     },
+    onClose: (err) => {
+      toast.error("Payment was canceled or encountered an error", {
+        autoClose: 1000,
+      });
+    },
+    onError: (error) => {
+      toast.error(`Payment Error: ${error.message}`, { autoClose: 1000 });
+    },
+  };
+
+  const handlePayment = (event) => {
+    const inputEmail = event.target.value;
+    setEmail(inputEmail);
+
+    // Regular expression for email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(inputEmail);
+
+    setIsValid(isValidEmail);
   };
 
   return (
@@ -112,76 +130,94 @@ function Payment() {
             Management Commision(NIMC) database
           </div>
         </div>
+        <div style={{ textAlign: "center", marginTop: "10px" }}>
+          {" "}
+          <span className="form-box-asterix">
+            Please ensure that the payment verification information is filled
+            out correctly.
+          </span>
+        </div>
+
         {isLoading ? (
           <LoadingSpinner />
         ) : (
-          <div className="payment-boxes">
-            <div className="payment-box">
-              <h3>Old Name</h3>
+          <>
+            <div className="payment-boxes">
+              <div className="payment-box">
+                <h3>Old Name</h3>
 
-              <h5 style={{ marginTop: "0.5rem" }}>{name}</h5>
+                <h5 style={{ marginTop: "0.5rem" }}>{name}</h5>
 
-              <h3 style={{ marginTop: "0.5rem" }}>New Name:</h3>
-              <h5 style={{ marginTop: "0.5rem" }}>{newName} </h5>
-              {/* <h3>{email}</h3> */}
+                <h3 style={{ marginTop: "0.5rem" }}>New Name:</h3>
+                <h5 style={{ marginTop: "0.5rem" }}>{newName} </h5>
+                {/* <h3>{email}</h3> */}
 
-              <h3 style={{ marginTop: "0.5rem" }}>Publication Type:</h3>
-              <h5 style={{ marginTop: "0.5rem" }}>Classified</h5>
+                <h3 style={{ marginTop: "0.5rem" }}>Publication Type:</h3>
+                <h5 style={{ marginTop: "0.5rem" }}>Classified</h5>
 
-              <h3 style={{ marginTop: "0.5rem" }}>Price: N{publication}</h3>
-              {/* <h3 style={{ marginTop: "0.5rem" }}>Vat: - N700</h3> */}
-              <h3
-                style={{
-                  marginTop: "0.5rem",
-                  borderTop: "1px solid black",
-                  borderBottom: "1px solid black",
-                  padding: "0.5rem auto",
-                }}
-              >
-                Total: {totalAmount}
-              </h3>
+                <h3 style={{ marginTop: "0.5rem" }}>Price: N{publication}</h3>
+                {/* <h3 style={{ marginTop: "0.5rem" }}>Vat: - N700</h3> */}
+                <h3
+                  style={{
+                    marginTop: "0.5rem",
+                    borderTop: "1px solid black",
+                    borderBottom: "1px solid black",
+                    padding: "0.5rem auto",
+                  }}
+                >
+                  Total: {totalAmount}
+                </h3>
+              </div>
+              <div className="checkout-form">
+                <form>
+                  <div className="checkout-field">
+                    <label>Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Enter your name"
+                      onChange={(e) => setPaystackName(e.target.value)}
+                    />
+                  </div>
+                  <div className="checkout-field">
+                    <label>Email</label>
+                    <input
+                      type="text"
+                      id="email"
+                      placeholder="Enter your email"
+                      onChange={handlePayment}
+                    />
+                    {isValid ? (
+                      <p style={{ color: "green" }}>Valid email address</p>
+                    ) : (
+                      <p style={{ color: "red" }}>Invalid email address</p>
+                    )}
+                  </div>
+                  <div className="checkout-field">
+                    <label>Phone</label>
+                    <input
+                      type="text"
+                      id="phone"
+                      placeholder="Enter your phoneNo"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                  </div>
+                </form>
+                <PaystackButton
+                  className="paystack-button"
+                  {...componentProps}
+                />
+              </div>
             </div>
-            <div className="checkout-form">
-              <form>
-                <div className="checkout-field">
-                  <label>Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your name"
-                    onChange={(e) => setPaystackName(e.target.value)}
-                  />
-                </div>
-                <div className="checkout-field">
-                  <label>Email</label>
-                  <input
-                    type="text"
-                    id="email"
-                    placeholder="Enter your email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="checkout-field">
-                  <label>Phone</label>
-                  <input
-                    type="text"
-                    id="phone"
-                    placeholder="Enter your phoneNo"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                </div>
-              </form>
-              <PaystackButton className="paystack-button" {...componentProps} />
-            </div>
-          </div>
+          </>
         )}
         <div className="footer-container">
           <div className="footer">
             <div className="footer-header">
               <h2>
                 {" "}
-                &copy; 2023 <br /> Geosoft Solutions Limited{" "}
+                &copy; 2023 <br /> The Classified Newspaper{" "}
               </h2>
             </div>
             <div className="footer-content">

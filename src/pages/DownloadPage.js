@@ -10,8 +10,7 @@ function Download() {
   const { newName, name, imageData, others } = useSelector(
     (state) => state.mainReducer
   );
-  console.log(newName);
-  console.log(imageData);
+
   // Base64 encoded image data
 
   const today = new Date();
@@ -19,7 +18,6 @@ function Download() {
   const month = ("0" + (today.getMonth() + 1)).slice(-2); // months are zero-indexed
   const day = ("0" + today.getDate()).slice(-2);
   const formattedDate = year + "-" + month + "-" + day;
-  console.log(formattedDate);
 
   const generatePdf = () => {
     const doc = new jsPDF();
@@ -86,7 +84,7 @@ function Download() {
               <div className="card">
                 <div className="card-top"></div>{" "}
                 <div className="card-bottom">
-                  <p>Publication Certificate</p>
+                  <p onClick={generatePdf}>Publication Certificate</p>
                   <i class="fa-solid fa-download" onClick={generatePdf}></i>
                 </div>
               </div>

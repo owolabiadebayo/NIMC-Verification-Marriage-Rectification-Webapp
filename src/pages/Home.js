@@ -116,6 +116,7 @@ function Home() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
             <p>
               New Name<span className="form-box-asterix">*</span>
@@ -125,6 +126,7 @@ function Home() {
               type="text"
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
+              required
             />
             <p>
               Upload your Affidavit/ marriage certificate or other documents
@@ -135,10 +137,14 @@ function Home() {
                 accept="image/*" // Specify the accepted file types to be images only
                 onChange={handleFileSelect}
                 style={{ display: "none" }}
+                required
               />
               <i class="fa-solid fa-file"></i>
               {imageUrl && (
-                <p className="file-input" style={{ marginTop: "0.4rem" }}>
+                <p
+                  className="file-input"
+                  style={{ marginTop: "0.4rem", fontSize: "14px" }}
+                >
                   {imageUrl.name}
                 </p>
               )}
@@ -152,6 +158,7 @@ function Home() {
               value={publication}
               onChange={handleOptionSelect}
               className="my-select"
+              required
             >
               <option value=""></option>
               <option value="4800">
@@ -174,6 +181,7 @@ function Home() {
               value={persons}
               onChange={handleOptionSelectTwo}
               className="my-select"
+              required
             >
               <option value=""></option>
               <option value="General Public">General Public</option>
@@ -187,6 +195,7 @@ function Home() {
               type="text"
               value={others}
               onChange={(e) => setOthers(e.target.value)}
+              required
             />
             <small>Please limit your message to 5 words or less.</small>
             <button type="submit">Continue</button>

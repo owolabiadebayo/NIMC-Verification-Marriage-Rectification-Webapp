@@ -20,19 +20,16 @@ function VirtualNin() {
     transactionId,
   } = useSelector((state) => state.mainReducer);
   const [vNIN, setvNIN] = useState("");
-  console.log(vNIN);
+
   const [responseData, setData1] = useState("");
-  console.log(responseData);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onChangevNIN = (e) => setvNIN(e.target.value);
   const imageData = `data:image/jpeg;base64,${responseData}`;
-  console.log(imageData);
-  console.log(publication == 4750.0);
 
   const [dob, setdob] = useState("");
   const [dob1, setDob1] = useState("");
-  console.log(dob, dob1);
 
   const data = {
     vNIN: vNIN,
@@ -136,8 +133,14 @@ function VirtualNin() {
           </div>
           <div className="image-container1">
             <div className="download-nin" style={{ marginLeft: "1rem" }}>
-              <div className="nav-download">
+              <div
+                className="nav-download"
+                style={{ display: "flex", flexDirection: "column" }}
+              >
                 {" "}
+                <div>
+                  <i>Dial *346*3*YOUR NIN*119887#</i>
+                </div>
                 <Link
                   to="/instruction"
                   style={{
